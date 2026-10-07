@@ -53,7 +53,11 @@ echo [2/5] Checking required packages (pywin32, pyinstaller, pillow)...
 %PY% -c "import win32com.client, PyInstaller, PIL" >nul 2>nul
 if errorlevel 1 (
     echo       Some packages are missing. Installing them now, please wait...
-    %PY% -m pip install --disable-pip-version-check pywin32 pyinstaller pillow
+    if exist "requirements.txt" (
+        %PY% -m pip install --disable-pip-version-check -r requirements.txt
+    ) else (
+        %PY% -m pip install --disable-pip-version-check pywin32 pyinstaller pillow
+    )
     if errorlevel 1 (
         echo [ERROR] Failed to install the required packages.
         echo         Check your internet connection and try again.

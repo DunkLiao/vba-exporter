@@ -246,7 +246,7 @@ flowchart TD
 雙擊專案根目錄的 `build.bat`。腳本會依序：
 
 1. 尋找可用的 Python（`python` 或 `py -3`）。
-2. 檢查並安裝缺少的 `pywin32`、`pyinstaller`、`pillow`。
+2. 檢查並安裝缺少的 `pywin32`、`pyinstaller`、`pillow`（優先依 `requirements.txt` 安裝）。
 3. 執行 `make_icon.py` 重新產生圖示。
 4. 確認 `VBAExporter.exe` 沒有正在執行。
 5. 以 PyInstaller 建置 `dist\VBAExporter.exe`。
@@ -264,7 +264,7 @@ build.bat /ci
 需求為 Python 3.10 以上，以及 `pywin32`、`pyinstaller`、`pillow`：
 
 ```powershell
-pip install pywin32 pyinstaller pillow
+pip install -r requirements.txt
 python make_icon.py
 python -m PyInstaller VBAExporter.spec
 ```
@@ -277,6 +277,7 @@ python -m PyInstaller VBAExporter.spec
 export_vba.py        GUI 與 VBA 匯出邏輯
 build.bat            一鍵建置腳本
 make_icon.py         產生應用程式圖示（icon.ico / icon_48.png）
+requirements.txt     Python 相依套件清單
 VBAExporter.spec     PyInstaller 設定
 dist/VBAExporter.exe 打包後的免安裝執行檔
 ```

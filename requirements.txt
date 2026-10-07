@@ -1,0 +1,12 @@
+# Excel VBA 模組匯出工具 - Python 相依套件
+# 安裝：pip install -r requirements.txt
+# 需求：Python 3.10 或更新版本（僅支援 Windows，需已安裝 Microsoft Excel）
+
+# 執行時期（export_vba.py）
+pywin32>=306        # pythoncom / win32com.client，透過 COM 操作 Excel
+
+# 圖示產生（make_icon.py）
+pillow>=10.0        # PIL，產生 icon.ico 與 icon_48.png
+
+# 打包（build.bat / VBAExporter.spec）
+pyinstaller>=6.0    # 將程式打包成單一執行檔
