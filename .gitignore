@@ -1,0 +1,40 @@
+# ============================================================
+#  .gitignore — Excel VBA 模組匯出工具 (VBAExporter)
+# ============================================================
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ---------- 虛擬環境 ----------
+.venv/
+venv/
+env/
+ENV/
+
+# ---------- PyInstaller 建置產物 ----------
+# build/ 是 PyInstaller 的中間檔
+build/
+# dist/ 是打包結果（含 VBAExporter.exe）。
+# 執行檔可用 build.bat 隨時重新產生，不建議版控 14MB 的二元檔；
+# 若你仍想一起版控，把下面這行刪掉即可（連帶 dist/VBAExporter.json 也會被納入）。
+dist/
+*.manifest
+
+# ---------- 本專案的本機狀態 / 中間產物 ----------
+# 記錄「上次選取的檔案與資料夾」，內含本機私人路徑，不應進版控
+VBAExporter.json
+# make_icon.py 產生的中間 PNG（真正要的是 icon.ico 與內嵌用的 base64）
+icon_48.png
+
+# ---------- 日誌 ----------
+*.log
+
+# ---------- 編輯器 / 作業系統 ----------
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+desktop.ini
+.DS_Store
